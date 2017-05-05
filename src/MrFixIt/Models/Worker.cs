@@ -19,7 +19,6 @@ namespace MrFixIt.Models
         public string UserName { get; set; }
         //this comes from Identity.User
         public virtual ICollection<Job> Jobs { get; set; }
-        public virtual Job Priority { get; set; }
 
         public Worker()
         {

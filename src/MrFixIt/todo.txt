@@ -2,8 +2,8 @@ To-Do list:
 
 Bugs:
 -Queue link on about page is broken
--"Claim this job" functionality is:
-	>broken
-	>can be accessed by anonymous users
+-"Claim this job" functionality can be accessed by anonymous users
 -You have not completed a worker profile shows even when you have (Workers/create)
 -How do pages show the layout without it being called?????
+
+-create ajax interface to add a priority job to the worker and set the pending status of that job to true
