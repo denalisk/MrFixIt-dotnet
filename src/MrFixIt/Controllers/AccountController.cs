@@ -35,6 +35,7 @@ namespace MrFixIt.Controllers
 
         public IActionResult Index()
         {
+            // This route checks to see if a User has an associated worker object, and prompts creation if it doesn't. Otherwise, redirects to the Account index which is a simple welcome page.
             if (User.Identity.IsAuthenticated)
             {
                 var thisWorker = db.Workers.FirstOrDefault(item => item.UserName == User.Identity.Name);

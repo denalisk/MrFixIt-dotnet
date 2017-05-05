@@ -11,6 +11,7 @@ using Microsoft.EntityFrameworkCore;
 namespace MrFixIt.Controllers
 {
     public class JobsController : Controller
+        // This controller helps mediate the display of job-related information regardless of user state, and allows visitors to submit jobs
     {
         private MrFixItContext db = new MrFixItContext();
 
@@ -41,6 +42,7 @@ namespace MrFixIt.Controllers
 
         [HttpPost]
         public IActionResult Claim(Job job)
+            // This route claims a job for a worker, and makes the appropriate edits in the database. There is currently no funcitonality to un-claim a job
         {
             job.Worker = db.Workers.FirstOrDefault(i => i.UserName == User.Identity.Name);
             db.Entry(job).State = EntityState.Modified;
@@ -50,6 +52,7 @@ namespace MrFixIt.Controllers
 
         [HttpPost]
         public Job ToggleActive(int targetId)
+            //This route toggles jobs as being worked on or not
         {
             var pendingJob = db.Jobs.FirstOrDefault(job => job.JobId == targetId);
             pendingJob.Pending = (!(pendingJob.Pending));
@@ -60,6 +63,7 @@ namespace MrFixIt.Controllers
 
         [HttpPost]
         public Job Complete(int targetId)
+            // This route toggles jobs as complete or not. There is no implemented functionality currently for "uncompleting" a job, but a call to this route would do it
         {
             var pendingJob = db.Jobs.FirstOrDefault(job => job.JobId == targetId);
             pendingJob.Completed = (!(pendingJob.Completed));

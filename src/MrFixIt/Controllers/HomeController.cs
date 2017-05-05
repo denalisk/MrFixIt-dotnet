@@ -12,6 +12,7 @@ namespace MrFixIt.Controllers
     public class HomeController : Controller
     {
         private MrFixItContext db = new MrFixItContext();
+            // This appears to be a redundant welcome page, similar to the account index, and is unused
 
         // GET: /<controller>/
         public IActionResult Index()

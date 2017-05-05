@@ -15,9 +15,13 @@ namespace MrFixIt.Models
         public int WorkerId { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
+
+        //This property went unused due to a decision to allow workers to be working on multiple different projects
         public bool Avaliable { get; set; }
-        public string UserName { get; set; }
+
         //this comes from Identity.User
+        public string UserName { get; set; }
+
         public virtual ICollection<Job> Jobs { get; set; }
 
         public Worker()

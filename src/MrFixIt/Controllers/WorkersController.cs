@@ -11,11 +11,13 @@ using Microsoft.EntityFrameworkCore;
 namespace MrFixIt.Controllers
 {
     public class WorkersController : Controller
+        //This controller contains the basic functionality for managing the display of worker-related information
     {
         private MrFixItContext db = new MrFixItContext();
         // GET: /<controller>/
         public IActionResult Index()
         {
+            //This view displays all the worker's jobs, or, if the user has not created a worker name profile, prompts creation
             var thisWorker = db.Workers.Include(i =>i.Jobs).FirstOrDefault(i => i.UserName == User.Identity.Name);
             if (thisWorker != null)
             {

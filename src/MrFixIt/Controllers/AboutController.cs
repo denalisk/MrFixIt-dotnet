@@ -10,6 +10,7 @@ namespace MrFixIt.Controllers
 {
     public class AboutController : Controller
     {
+        //This controller contains a single route that functions as the landing/home page for the site, with a bunch of helpful links to elsewhere
         // GET: /<controller>/
         public IActionResult Index()
         {
