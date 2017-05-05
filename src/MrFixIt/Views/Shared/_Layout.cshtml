@@ -29,21 +29,27 @@
                         @Html.ActionLink("About", "Index", "About")
                     </li>
                     <li>
-                        @Html.ActionLink("Hire Us", "Index", "Jobs")
+                        @Html.ActionLink("Current Jobs", "Index", "Jobs")
                     </li>
                     @if (User.Identity.IsAuthenticated)
                     {
                         <li>
                             @Html.ActionLink("Worker Dashboard", "Index", "Workers")
                         </li>
-                    }
-
-                    @if (User.Identity.IsAuthenticated)
-                    {
                         <li>
-                            @Html.ActionLink("Log Out", "LogOff", "Account")
+                          @Html.ActionLink("Log Out", "LogOff", "Account")
                         </li>
                     }
+                    else
+                    {
+                        <li>
+                          @Html.ActionLink("Log In", "Login", "Account")
+                        </li>
+                    }
+<!--
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                    } -->
 
                 </ul>
             </div>
