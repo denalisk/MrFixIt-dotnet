@@ -15,7 +15,9 @@
     <div class="well">
       <h4>@Model.Title</h4>
       <hr>
-      <input type="submit" value="Claim This Job" class="btn btn-primary">
+      <input type="submit" value="Claim This Job" class="btn btn-primary claim-button">
+      <button type="button" name="button" class="claimed-tag btn btn-success hide" disabled>Claimed!</button>
+      <button type="button" name="button" class="claimed-error btn btn-danger hide" disabled>Error, unable to claim</button>
     </div>
   </form>
 
