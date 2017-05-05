@@ -47,5 +47,15 @@ namespace MrFixIt.Controllers
             db.SaveChanges();
             return RedirectToAction("Index");
         }
+
+        [HttpPost]
+        public Job ToggleActive(int targetId)
+        {
+            var pendingJob = db.Jobs.FirstOrDefault(job => job.JobId == targetId);
+            pendingJob.Pending = (!(pendingJob.Pending));
+            db.Entry(pendingJob).State = EntityState.Modified;
+            db.SaveChanges();
+            return pendingJob;
+        }
     }
 }

@@ -13,7 +13,21 @@
         <h3>Your Current Jobs:</h3>
         @foreach (var Job in Model.Jobs)
         {
+          <hr>
             <h5>@Job.Title</h5>
+            @if(Job.Completed) {
+              <h3>
+                This job is complete
+              </h3>
+            }
+            else {
+              <h3>You are currently <span id="active-text-@Job.JobId" class="">@if(Job.Pending == false){<span>not</span>}</span> working on this job.</h3>
+              <div class="holder">
+                <button type="button" name="button" class="toggle-job-activity btn btn-warning">Toggle Activity</button>
+                <input type="hidden" value=@Job.JobId>
+                <button type="button" name="button" class="complete-job btn btn-success">Mark Complete</button>
+              </div>
+            }
 
         }
         @if (Model.Avaliable)

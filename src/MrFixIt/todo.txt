@@ -6,4 +6,4 @@ Bugs:
 -You have not completed a worker profile shows even when you have (Workers/create)
 -How do pages show the layout without it being called?????
 
--create ajax interface to add a priority job to the worker and set the pending status of that job to true
+-create ajax interface to set the pending status of that job to true
