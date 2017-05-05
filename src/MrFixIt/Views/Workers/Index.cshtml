@@ -6,42 +6,58 @@
 @if (User.Identity.IsAuthenticated)
 {
     <div class="text-center">
+      <div class="jumbotron">
         <h4>Hello Worker @Model.FirstName @Model.LastName. You are Logged In</h4>
-        <h3>Your Current Jobs:</h3>
+        <h1>Your Current Jobs:</h1>
+      </div>
+      <div class="row">
         @foreach (var Job in Model.Jobs)
         {
-          <hr>
-            <h5>@Job.Title</h5>
-            <div id="complete-view-@Job.JobId" class="hide">
-              <div class="panel panel-success">
-                <div class="panel-heading">
-                  <h3>Well done! Task Complete!</h3>
+
+          <div class="col-md-6">
+            <div class="well">
+              <h2>@Job.Title</h2>
+
+              <div id="complete-view-@Job.JobId" class="hide">
+                <div class="panel panel-success">
+                  <div class="panel-heading">
+                    <h4>Well done! Task Complete!</h4>
+                  </div>
                 </div>
               </div>
-            </div>
-            <div id="default-view-@Job.JobId">
-              @if(Job.Completed) {
-                <h3>
-                  This job is complete
-                </h3>
-              }
-              else {
-                <h3>You are currently <span id="active-text-@Job.JobId" class="">@if(Job.Pending == false){<span>not</span>}</span> working on this job.</h3>
-              }
-              <div class="holder">
-                <button type="button" name="button" class="toggle-job-activity btn btn-warning">Toggle Activity</button>
-                <input type="hidden" value=@Job.JobId>
-                <button type="button" name="button" class="complete-job btn btn-success">Mark Complete</button>
+              <div id="default-view-@Job.JobId">
+                @if(Job.Completed) {
+                  <h4>
+                    This job is complete
+                  </h4>
+                }
+                else {
+                  <h4>You are currently <span id="active-text-@Job.JobId" class="">@if(Job.Pending == false){<span>not</span>}</span> working on this job.</h4>
+                  <div class="holder">
+                    <hr>
+                    <button type="button" name="button" class="toggle-job-activity btn btn-warning">Toggle Activity</button>
+                    <input type="hidden" value=@Job.JobId>
+                    <button type="button" name="button" class="complete-job btn btn-success">Mark Complete</button>
+                  </div>
+                }
               </div>
             </div>
+          </div>
         }
-        @if (Model.Avaliable)
-        {
+      </div>
+        <div class="row">
+          <hr>
+          @if (Model.Avaliable)
+          {
             <h2>Please @Html.ActionLink("select a job", "Index", "Jobs").</h2>
-        }
-        else
-        {
+          }
+          else
+          {
             <p>You are already assigned to a job.</p>
-        }
+          }
+        </div>
     </div>
 }
+<div class="bottom-spacer">
+
+</div>
