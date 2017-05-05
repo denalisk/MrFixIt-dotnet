@@ -18,9 +18,22 @@
         <div class="col-sm-4">
           <div class="well">
             <div>
-              <div><h4>@Job.Title</h4></div>
               <div>
-                <div>Description: @Job.Description</div>
+                <div class="panel panel-info">
+                  <div><h4>@Job.Title</h4></div>
+                  <div>Description: @Job.Description</div>
+                </div>
+                <div>This job is currently
+                  @if(Job.Completed == true) {
+                    <span>complete</span>
+                  }
+                  else {
+                    @if (Job.Pending == false) {
+                      <span>not</span>
+                    }
+                    <span>active</span>
+                  }
+                </div>
               </div>
               @if (Job.Worker == null)
               {
