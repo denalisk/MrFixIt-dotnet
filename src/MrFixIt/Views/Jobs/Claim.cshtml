@@ -7,6 +7,19 @@
 
 <h2>Would you like to do this job?</h2>
 <hr />
+<div class="form-group">
+  <form id="claim-form" method="post" data-url-action="@Url.Action("Route", "Controller")">
+    <input type="hidden" name="JobId" value=@Model.JobId>
+    <input type="hidden" name="Title" value=@Model.Title>
+    <input type="hidden" name="Description" value=@Model.Description>
+    <div class="well">
+      <h4>@Model.Title</h4>
+      <hr>
+      <input type="submit" value="Claim This Job" class="btn btn-primary">
+    </div>
+  </form>
+
+</div>
 @using (Html.BeginForm())
 {
     @Html.HiddenFor(model => model.JobId)
