@@ -1,0 +1,9 @@
+To-Do list:
+
+Bugs:
+-Queue link on about page is broken
+-"Claim this job" functionality is:
+	>broken
+	>can be accessed by anonymous users
+-You have not completed a worker profile shows even when you have (Workers/create)
+-How do pages show the layout without it being called?????
