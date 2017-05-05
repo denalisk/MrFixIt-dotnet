@@ -3,6 +3,10 @@
     color: navy;
 }
 
+div.bottom-spacer {
+  margin-bottom: 200px;
+}
+
 .hide {
   display: none;
 }

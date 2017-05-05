@@ -4,28 +4,36 @@
 @{
 }
 <div class="text-center">
-    <h3>Our Current Jobs</h3>
-    @Html.ActionLink("Add a new job", "Create")
+  <div class="panel panel-info">
+    <div class="panel-heading">
+      <h2>Our Current Jobs</h2>
+    </div>
+    <div class="panel-body">
+      <div class="row">
+        @Html.ActionLink("Add a new job", "Create")
+        <hr>
+      </div>
+      @foreach (var Job in Model)
+      {
+        <div class="col-sm-4">
+          <div class="well">
+            <div>
+              <div><h4>@Job.Title</h4></div>
+              <div>
+                <div>Description: @Job.Description</div>
+              </div>
+              @if (Job.Worker == null)
+              {
+                <div class="btn">This job is unclaimed. @Html.ActionLink("Claim This Job", "Claim", new { @text = @Job.Title, id = Job.JobId })</div>
+              }
+              else
+              {
+                <div class="btn">This Job is claimed by @Job.Worker.FirstName @Job.Worker.LastName</div>
+              }
+            </div>
+          </div>
+        </div>
+      }
+    </div>
+  </div>
 </div>
-@foreach (var Job in Model)
-{
-    <ul>
-        <li>@Job.Title</li>
-        <ul>
-            <li>@Job.Description</li>
-        </ul>
-        @if (Job.Worker == null)
-        {
-        <li class="btn">This job is unclaimed. @Html.ActionLink("Claim This Job", "Claim", new { @text = @Job.Title, id = Job.JobId })</li>
-        }
-        else
-        {
-            <li class="btn">This Job is claimed by @Job.Worker.FirstName @Job.Worker.LastName</li>
-
-        }
-    </ul>
-
-
-    <hr />
-}
-
