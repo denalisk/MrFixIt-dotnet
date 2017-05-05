@@ -38,7 +38,7 @@
       success: function(result) {
         console.log(result);
         console.log(activeString.innerHTML);
-        (result.pending === true) ? $(activeString).text('') : $(activeString).text('not ');
+        (result.pending === true) ? $(activeString). : $(activeString).text('not ');
       },
       error: function(result) {
         console.log(result);
