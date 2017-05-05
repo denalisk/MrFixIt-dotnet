@@ -36,9 +36,27 @@
       datatype: 'json',
       data: { targetId: targetId },
       success: function(result) {
-        console.log(result);
-        console.log(activeString.innerHTML);
         (result.pending === true) ? $(activeString).text('') : $(activeString).text('not ');
+      },
+      error: function(result) {
+        console.log("There was an error");
+      }
+    })
+  })
+  $('.complete-job').click(function() {
+    // This function marks a task as complete and displays a message
+    var targetId = $(this).prev().val();
+    var successString = '#complete-view-' + targetId;
+    var defaultString = '#default-view-' + targetId;
+    console.log(successString);
+    $.ajax({
+      url: '/Jobs/Complete',
+      type: 'POST',
+      datatype: 'json',
+      data: { targetId: targetId },
+      success: function(result) {
+        $(defaultString).addClass('hide');
+        $(successString).removeClass('hide');
       },
       error: function(result) {
         console.log(result);
