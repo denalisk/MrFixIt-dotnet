@@ -11,13 +11,15 @@
 <hr />
 @if (User.Identity.IsAuthenticated)
 {
-    <h4>Hello @User.Identity.Name!</h4>
-
+<div class="jumbotron">
+  <h1>Hello @User.Identity.Name!</h1>
+  @Html.ActionLink("Main Dashboard", "Index", "Workers")
+</div>
 } else
 {
+  <div class="well">
     <p>@Html.ActionLink("Register", "Register")</p>
+    <hr>
     <p>@Html.ActionLink("Log in", "Login")</p>
+  </div>
 }
-
-
-
